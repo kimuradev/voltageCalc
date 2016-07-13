@@ -1,0 +1,2 @@
+angular.module('voltageCalculator.services', [])
+

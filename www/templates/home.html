@@ -1,0 +1,52 @@
+<ion-view view-title="Voltage Calculator">
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <!--<ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>-->
+        <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear" ng-click="clear()"> Clear</button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+  <ion-content class="padding">
+    <form name="formCalculator" >
+        <div class="col-sm-12">
+            <label class="item item-input">
+              <input type="number" class="text-center" placeholder="Voltage IN (volts)" ng-model="voltage.entrada" ng-disabled="voltage.resistor1 != null && voltage.resistor2 != null && voltage.saida != null">
+            </label>
+        </div>
+
+       <div class="col-sm-12">
+            <label class="item item-input">
+              <input type="number" class="text-center" placeholder="Resistor 1 (ohms)" ng-model="voltage.resistor1" ng-disabled="voltage.entrada != null && voltage.resistor2 != null && voltage.saida != null" >
+            </label>
+        </div>
+        <div class="col-sm-12">
+            <label class="item item-input">
+              <input type="number" class="text-center"  placeholder="Resistor 2 (ohms)" ng-model="voltage.resistor2" ng-disabled="voltage.entrada != null && voltage.resistor1 != null && voltage.saida != null">
+            </label>
+        </div>
+        <div class="col-sm-12">
+            <label class="item item-input">
+              <input type="number" class="text-center"  placeholder="Voltage OUT (volts)" ng-model="voltage.saida" ng-disabled="voltage.entrada != null && voltage.resistor1 != null && voltage.resistor2 != null" >
+            </label>
+        </div>
+	</form>
+    <h2 class="text-center">Result: {{result | number: 2}} {{unit}}</h2>  
+      
+    <div class="margin-circuit text-center">
+        <img src="img/circuito-divisor-de-tensao.png" href="#" height="200px">
+    </div>  
+      
+    <div class="bar bar-footer">
+       <button class="button button-full button-positive" ng-click="calcularVoltagem()" ng-disabled="checkCalculateButton()" >
+          Calculate
+       </button>
+    </div>
+      
+   
+  </ion-content>
+</ion-view>
